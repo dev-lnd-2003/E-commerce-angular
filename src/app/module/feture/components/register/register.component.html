@@ -1,0 +1,22 @@
+<div class="container p-5 text-center">
+    <h3>Đăng Ký</h3>
+    <div class="form  mx-auto mt-5" style="width: 450px;align-items: center; justify-content: center;">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <!-- <div class="mb-3" style="width: 450px;height: 50px;font-weight: bold;">
+                <input type="text" formControlName="fullname" class="form-control " style="width: 450px;height: 50px;font-weight: bold;" placeholder="Họ tên" />
+            </div> -->
+            <div class="mb-3" style="width: 450px;height: 50px;font-weight: bold;">
+                <input type="text" formControlName="username" class="form-control " style="width: 450px;height: 50px;font-weight: bold;" placeholder="Tài khoản" />
+            </div>
+            <!-- <div class="mb-3" style="width: 450px;height: 50px;font-weight: bold;">
+                <input type="text" formControlName="email" class="form-control " style="width: 450px;height: 50px;font-weight: bold;" placeholder="E-mail" />
+            </div> -->
+            <div class="mb-3 " style="width: 450px;">
+                <input type="text" formControlName="password" name="password" class="form-control" style="width: 450px;height: 50px;font-weight: bold;" placeholder="Mật khẩu" />
+            </div>
+
+            <button class="btn btn-primary row">Đăng Ký</button>
+        </form>
+    </div>
+
+</div>

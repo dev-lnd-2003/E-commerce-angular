@@ -1,0 +1,13 @@
+.card-body {
+    padding: 10px !important;
+}
+
+.card {
+    border: 1px solid #f2f2f9;
+    margin-right: 40px;
+    margin-left: 10px;
+}
+
+table {
+    padding: 10px;
+}

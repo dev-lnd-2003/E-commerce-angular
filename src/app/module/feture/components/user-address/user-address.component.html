@@ -1,0 +1,103 @@
+<div class="modal fade" style="text-transform: capitalize; " id="staticBackdrop" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="row  bg-white rounded-3">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <mat-horizontal-stepper [labelPosition]="'bottom'">
+                    <mat-step [stepControl]="formInfoUser" [editable]="true">
+                        <ng-template matStepLabel>
+                            <p>Điền Thông Tin</p>
+                            <mat-icon class="mat-18">ligature</mat-icon>
+                        </ng-template>
+                        <form [formGroup]="formInfoUser" (ngSubmit)="onSubmit()">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="" class="mb-2">Họ Tên</label>
+                                        <input type="text" formControlName="fullName" class="form-control">
+                                        <span style="color: red;font-weight: bold;margin-top: 15px;" *ngIf="formInfoUser.controls['fullName'].invalid">
+                                        Không để trống
+                                      </span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 p-3">
+                                    <div class="form-group">
+                                        <label for="" class="mb-2">Ngày tạo đơn</label>
+                                        <input type="text" [value]="date | date" class="form-control" disabled>
+                                    </div>
+                                </div>
+                                <div class=" col-md-6 p-3">
+                                    <div class="form-group">
+                                        <label for="" class="mb-2">Số điện thoại</label>
+                                        <input formControlName="mobile" type="text" class="form-control">
+                                        <span style="color: red;font-weight: bold;margin-top: 15px;" *ngIf="formInfoUser.controls['mobile'].invalid ">
+                                        Nhập không dưới 10 số
+                                      </span>
+                                    </div>
+                                </div>
+                                <div class=" col-md-6 p-3">
+                                    <div class="form-group">
+                                        <label for="" class="mb-2">Địa chỉ</label>
+                                        <input type="text" formControlName="address" class="form-control">
+                                        <span style="color: red;font-weight: bold;margin-top: 15px;" *ngIf="formInfoUser.controls['address'].invalid">
+                                        Không để trống
+                                      </span>
+                                    </div>
+                                </div>
+                                <div class=" col-md-6  p-3">
+                                    <div class="form-group">
+                                        <label for="" class="mb-2">Thành Phố</label>
+                                        <input type="text" formControlName="city" class="form-control">
+                                        <span style="color: red;font-weight: bold;margin-top: 15px;" *ngIf="formInfoUser.controls['city'].invalid">
+                                        Không để trống
+                                      </span>
+                                    </div>
+                                </div>
+                                <div class=" col-md-6  p-3">
+                                    <div class="form-group">
+                                        <label for="" class="mb-2">Quốc Gia</label>
+                                        <input type="text" formControlName="country" class="form-control">
+                                        <span style="color: red;font-weight: bold;margin-top: 15px;" *ngIf="formInfoUser.controls['country'].invalid">
+                                        Không để trống
+                                      </span>
+                                    </div>
+                                </div>
+                                <div class=" col-md-6  p-3">
+                                    <div class="form-group">
+                                        <label for="" class="mb-2">Mã Bưu Chính</label>
+                                        <input type="text" formControlName="postCode" class="form-control">
+                                        <span style="color: red;font-weight: bold;margin-top: 15px;" *ngIf="formInfoUser.controls['postCode'].invalid">
+                                        Không để trống
+                                      </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button matStepperNext class="btn btn-primary col-md-12 me-auto" [disabled]="!formInfoUser.valid">Kế tiếp</button>
+                        </form>
+                    </mat-step>
+                    <mat-step label="step 2">
+                        <ng-template matStepLabel>
+                            <p>Chọn phương thức thanh toán</p>
+                            <mat-icon class="mat-18">ligature</mat-icon>
+                        </ng-template>
+                        <div>
+                            <app-payment-method [username]="username"></app-payment-method>
+                        </div>
+                    </mat-step>
+                    <mat-step label="step 3">
+                        <ng-template matStepLabel>
+                            <p>Xác nhận </p>
+                            <mat-icon class="mat-18">ligature</mat-icon>
+                        </ng-template>
+                        <div>
+                            <app-checkout></app-checkout>
+                        </div>
+                    </mat-step>
+                </mat-horizontal-stepper>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container p-5 text-center">
+    <h3>Đăng Nhập</h3>
+    <div class="form  mx-auto mt-5" style="width: 450px;align-items: center; justify-content: center;">
+        <form action="" class="" (ngSubmit)="login(userForm)" #userForm="ngForm">
+            <div class="mb-3" style="width: 450px;height: 50px;font-weight: bold;">
+                <input type="text" ngModel name="username" class="form-control " style="width: 450px;height: 50px;font-weight: bold;" placeholder="Tài khoản" />
+            </div>
+            <div class="mb-3 " style="width: 450px;">
+                <input type="text" ngModel name="password" class="form-control" style="width: 450px;height: 50px;font-weight: bold;" placeholder="Mật khẩu" />
+            </div>
+
+            <button class="btn btn-primary row">Đăng Nhập</button>
+        </form>
+    </div>
+
+</div>

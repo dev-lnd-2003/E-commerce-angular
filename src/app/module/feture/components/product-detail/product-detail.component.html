@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <div class="container  m-5" style="background-color:white;height: auto">
+        <div class="row">
+            <div class="col-md-6 p-2">
+                <div class="row">
+                    <img *ngIf="product?.image" [src]='product.image' style="width: 450px;height: 388px;left: 100px" class="position-relative" alt="">
+
+                </div>
+
+            </div>
+            <div class="col-md-6 p-2">
+                <h1 *ngIf="product?.name" class="text-capitalize" style="font-size: 1.7rem;font-weight: 600;color: #333;line-height:1.5rem;padding-bottom: 16px;padding-top: 20px">
+                    {{product.name}}
+                </h1>
+                <!-- <div class="suplier mb-2">
+                    Nhà cung cấp :
+                    <span class="product-price fw-bold "></span>
+                </div> -->
+                <div class="inventory mb-2" *ngIf="product?.inventoryQuantity">
+                    Số lượng :
+                    <span class="product-price fw-bold ">{{product.inventoryQuantity}}</span>
+                </div>
+                <div class="inventory mb-2" *ngIf="product?.createDate">
+                    Ngày tạo :
+                    <span class="product-price fw-bold ">{{product.createDate |  date:'dd-MM-yyyy'}}</span>
+                </div>
+                <hr>
+                <span *ngIf="product?.price" class="product-price fw-bold " style="color: #C92127;font-size: 32px;line-height: 32px">
+                  Giá:   {{product.price | number}} <span><sup>đ</sup></span>
+                </span>
+                <br>
+                <div class="text-center mt-3 d-flex">
+                    <button (click)="addToCart(product.id)" class="btn btn-outline-danger fw-bold me-2">Thêm vào giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

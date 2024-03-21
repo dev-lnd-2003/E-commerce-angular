@@ -1,0 +1,26 @@
+<div class="mb-3">
+    <form action="" (ngSubmit)="onSubmit()" [formGroup]="formPaymentMethod">
+        <div class="mb-3">
+            <label for="payment-method" class="form-label">Phương Thức Thanh Toán</label>
+            <select class="form-select form-select-lg" id="payment-method" formControlName="paymentType">
+              <option value="">Chọn Phương Thức</option>
+              <option *ngFor="let method of paymentType" [value]="method.value">{{ method.label }}</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="provider" class="form-label">Phương Thức Vận Chuyển</label>
+            <select class="form-select form-select-lg" id="provider" formControlName="provider">
+              <option value="">Chọn Phương Thức</option>
+              <option *ngFor="let method of provider" [value]="method.value">{{ method.label }}</option>
+            </select>
+        </div>
+
+        <div>
+            <div class="mb-3">
+                <label for="" class="form-label">Ngày Nhận Hàng</label>
+                <input type="text" name="" id="" class="form-control" placeholder="" formControlName="expiry" aria-describedby="helpId" [value]="formPaymentMethod.get('expiry')?.value | date:'yyyy-MM-dd'" />
+            </div>
+        </div>
+        <button matStepperNext class="btn btn-primary" style="width: 450px;" [disabled]="!formPaymentMethod.valid">Kế Tiếp</button>
+    </form>
+</div>

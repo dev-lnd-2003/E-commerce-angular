@@ -1,0 +1,54 @@
+.card-body {
+    padding: 10px !important;
+}
+
+.card {
+    border: 1px solid #f2f2f9;
+    margin-right: 40px;
+    margin-left: 10px;
+}
+
+table {
+    padding: 10px;
+}
+
+table .product-name {
+    margin-left: 20px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    max-width: 200px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.cart .total-price {
+    color: #1d1d1d;
+    font-size: 20px;
+}
+
+.cart .btn-delete {
+    text-decoration: none;
+    color: rgba(50, 50, 85, 0.915);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.cart .btn-delete:hover {
+    color: #FF8F9E;
+}
+
+.cart .btn-buy {
+    color: #1d1d1d;
+    border: 1px solid #f2f2f9;
+    background: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.5s ease;
+    border-radius: 5px;
+}
+
+.cart .btn-buy:hover {
+    color: #f2f2f9;
+    background-color: #1d1d1d;
+}

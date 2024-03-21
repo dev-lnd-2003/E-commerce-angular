@@ -1,0 +1,23 @@
+<div class="container">
+    <table class="table ">
+        <thead>
+            <tr>
+                <th scope="col">Sản Phẩm</th>
+                <th scope="col">Ảnh</th>
+                <th scope="col">Giá </th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let p of cart">
+            <tr class="">
+                <td scope="row">{{p.productName}}</td>
+                <td> <img [src]="p.productImage" width="50" height="50"></td>
+                <td>{{p.productPrice | number}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            Tổng Tiền : {{totalPrice | number}}
+        </tfoot>
+    </table>
+    <button class="btn btn-primary col-md-12" (click)="checkOut()">Thanh Toán</button>
+
+</div>

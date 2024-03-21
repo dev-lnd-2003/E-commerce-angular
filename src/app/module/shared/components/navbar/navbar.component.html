@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg position-relative " style="background-color: white !important;" ng-controller="headerCtrl">
+        <div class="container">
+            <!--        <a class="navbar-brand" href="#">Navbar</a>-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" style="padding: 20px 30px" id="navbarSupportedContent">
+                <ul class="navbar-nav me-5 mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" [routerLink]="['/home']">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sản Phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Liên Hệ</a>
+                    </li>
+                </ul>
+                <form class="me-5 ms-auto d-flex" role="search">
+                    <input style="width: 300px" class="form-control me-1" type="search" placeholder="Tìm Kiếm" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Tìm Kiếm</button>
+                </form>
+                <ul class="navbar-nav me-3 ms-auto mb-2 mb-lg-0" ng-show="isUser" *ngIf="!token">
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/login']">Đăng Nhập</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['/register']">Đăng Ký</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav me-3 ms-auto mb-2 mb-lg-0" *ngIf="token">
+                    <li class="nav-item col-4 dropdown text-center">
+                        <a class="nav-link dropdown " style="color: #000000" id="dropdownUser" data-bs-toggle="dropdown" role="button">
+                            <fa-icon [icon]="faUser"></fa-icon>
+                        </a>
+                        <ul class="dropdown-menu text-center" style="margin-left: -150px;border: 1px solid #f2f2f2;" aria-labelledby="dropdownMenuLink">
+                            <div class="info-customer">
+                                <img class="avatar-img mb-2 mt-2 " [src]='photo' width="100" height="100" style="border-radius: 100px;" alt="" srcset="">
+                                <h3 class="customer-name">{{fullname}}</h3>
+                                <hr>
+                                <div class="customer-content">
+                                    <ul class="navbar-nav p-0">
+                                        <li>
+                                            <a class="dropdown-item d-flex" href="">Hồ Sơ Cá Nhân</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex" [routerLink]="['/orders']">Đơn Hàng</a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item d-flex" [routerLink]="['/cart']">Giỏ Hàng</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <hr>
+                                <div class="customer-content-other">
+                                    <!--                                <li>-->
+                                    <!--                                    <a class="dropdown-item d-flex" href="">Cài Đặt</a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a class="dropdown-item d-flex" href="">Điều Chỉnh Bảng Tin</a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a class="dropdown-item d-flex" href="">Cài Đặt Ứng Dụng Windows</a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a class="dropdown-item d-flex" href="">Quyền Riêng Tư Của Bạn</a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a class="dropdown-item d-flex" href="">Nhận Trợ Giúp</a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a class="dropdown-item d-flex" href="">Xem Điều Khoản Dịch Vụ</a>-->
+                                    <!--                                </li>-->
+                                    <!--                                <li>-->
+                                    <!--                                    <a class="dropdown-item d-flex" href="">Xem Chính Sách Quyền Riêng Tư Của Bạn</a>-->
+                                    <!--                                </li>-->
+                                    <li>
+                                        <a (click)="logout()" class="dropdown-item d-flex align-items-center gap-2 mb-2" style="font-weight: 600;" ng-click="logout()">
+                                        Đăng Xuất
+                                    </a>
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav me-3 mb-2 mb-lg-0">
+                    <li class="nav-item d-flex">
+                        <a style="color: #000000" class="nav-link" [routerLink]="['/cart']">
+                            <fa-icon [icon]="faShoppingCart"></fa-icon>
+                        </a>
+                        <!--                    <span ng-hide="isAmount" class="text-center align-content-center position-relative" style="top: -10px;background-color: #C92127;padding: 5px 15px;color: white;border-radius: 80%; height: 30px">-->
+                        <!--                        <h6>-->
+                        <!--                        {{amount}}-->
+                        <!--                        </h6>-->
+                        <!--                    </span>-->
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+
+
+</html>

@@ -1,0 +1,73 @@
+<body class="bg-light py-5">
+    <section class="container cart bg-white p-5 position-relative" style="top: 20px">
+        <section>
+            <h1 class="mb-2 text-center " style="font-size: 36px !important;">Giỏ Hàng</h1>
+        </section>
+        <section>
+            <div class="row ">
+                <div class="card">
+                    <div class="card-body ">
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <thead>
+                                    <tr class="text-center ">
+                                        <th>STT</th>
+                                        <th>Sản Phẩm</th>
+                                        <th>Tên Sản Phẩm</th>
+                                        <th>Đơn Giá</th>
+                                        <th>Số Lượng</th>
+                                        <th>Thao Tác</th>
+                                        <th>Chọn</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="" style=" vertical-align: middle;" *ngFor="let c of cart; let i=index">
+                                        <td style="font-size: 16px;" class="text-center">{{i+1}}</td>
+                                        <!--                                <td style="font-size: 16px;"   class="text-center"><input type="text" ng-model="{{}}" value="{{p.id_product}}"></td>-->
+
+                                        <td class="text-center"><img [src]="c.productImage" style="width: 100px" alt="" srcset="">
+                                        </td>
+                                        <td class="product-name text-center">
+                                            {{c.productName}}
+                                        </td>
+
+                                        <td class="text-center ">{{c.productPrice | number}}<sup>đ</sup></td>
+                                        <td class="text-center  d-flex justify-content-center mt-4 ">
+                                            <button class="btn btn-primary  me-2 " ng-click="increaseQuantity(p)">+</button>
+                                            <input type="text" ng-model="quantity" disabled class="text-center w-25 form-control" placeholder="{{c.quantity}}">
+                                            <button class="btn btn-danger  ms-2" ng-click="decreaseQuantity(p)">-</button>
+                                        </td>
+                                        <td class="text-center"><a class="btn-delete" (click)="removeProduct(c.productId)">Xoá</a></td>
+                                        <td>
+                                            <div class="text-center">
+                                                <input ng-model="choose" ng-checked="all" class="form-check-input text-center" type="checkbox" value="" id="flexCheckDefault">
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="content-order d-flex align-items-center">
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" class="ms-auto btn-buy">
+                              Xác Nhận
+                          </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <app-user-address [username]="username"></app-user-address>
+    </section>
+
+</body>
